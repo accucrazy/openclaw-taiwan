@@ -1,5 +1,7 @@
 ## Contributing
 
+By Ian Wu, The Pocket Company
+
 Thanks for your interest in openclaw-Taiwan. We welcome issues, bug fixes, and feature proposals.
 
 ### How to contribute

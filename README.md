@@ -1,5 +1,7 @@
 # openclaw-Taiwan
 
+By Ian Wu, The Pocket Company
+
 openclaw-Taiwan 是一個針對台灣開發者的 OpenClaw 部署框架，支援 GCP Cloud Run、GCE VM、Google Chat 與 LINE OA（包含群組 @ 提及）。希望台灣開發者可以一起完善這個框架。
 
 ## Features
@@ -134,6 +136,14 @@ Once deployed, you can:
 1. **Chat with AI**: Send messages in Google Chat
 2. **Generate Images**: Say "generate an image of a cat"
 3. **Edit Images**: Send an image and say "change the background to blue"
+
+## Demo Screenshots
+
+以下示意 openclaw-Taiwan 在 LINE 私訊與群組中的實際互動：
+
+![LINE demo 1](demo/1891188_0.jpg)
+![LINE demo 2](demo/1891189_0.jpg)
+![LINE demo 3](demo/1891190_0.jpg)
 
 ## GCE VM (Compute Engine) 部署摘要
 
