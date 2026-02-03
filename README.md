@@ -79,6 +79,32 @@ gcloud secrets create clawdbot-googlechat-sa \
    - `https://YOUR_DOMAIN/line`
 4. 開啟「Use webhook」
 
+### LINE OA 整合說明
+
+- LINE 的 channel extension 由 OpenClaw 內建提供（不在本 repo 內），本專案負責部署與設定。
+- 啟用方式是提供 `LINE_CHANNEL_SECRET` / `LINE_CHANNEL_ACCESS_TOKEN`，並在 `openclaw.json` 中設定 channel。
+- 群組 @ 提及建議用 `groups.*.requireMention` 控制。
+
+範例設定：
+```json
+{
+  "channels": {
+    "line": {
+      "enabled": true,
+      "channelAccessToken": "YOUR_TOKEN",
+      "channelSecret": "YOUR_SECRET",
+      "webhookPath": "/line",
+      "dmPolicy": "open",
+      "allowFrom": ["*"],
+      "groupPolicy": "open",
+      "groups": {
+        "*": { "requireMention": true }
+      }
+    }
+  }
+}
+```
+
 ### 6. Build and Deploy
 
 ```bash
