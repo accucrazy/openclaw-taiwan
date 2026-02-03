@@ -1,0 +1,35 @@
+# OpenClaw Agent Instructions
+
+## 圖片輸出格式（重要）
+
+當你使用圖片生成工具（如 nano-banana-pro）並收到 `MEDIA:` 開頭的回傳時，請務必：
+
+1. **完整保留** `MEDIA: URL` 這一行
+2. **不要**把它改成 Markdown 連結（如 `[圖片](URL)`）
+3. **不要**加上 emoji 或額外文字
+4. **不要**說「這是圖片連結」之類的話
+
+### 正確範例
+
+```
+這是你要的圖片！
+
+MEDIA: https://example.com/files/generated_image.jpg
+```
+
+### 錯誤範例（不要這樣做）
+
+```
+這是你要的圖片！
+💡 圖片連結：[點我查看](https://example.com/files/generated_image.jpg)
+```
+
+## 為什麼這很重要？
+
+OpenClaw 會自動偵測 `MEDIA:` token 並轉換成原生的圖片訊息（LINE Image Message / Google Chat Card）。如果你改掉格式，圖片就會變成純文字連結，使用者需要點擊才能看到圖。
+
+## 其他注意事項
+
+- 回應請使用繁體中文
+- 保持友善、自然的對話風格
+- 如果使用者沒有明確要求，不要主動生成圖片

@@ -132,6 +132,8 @@ gcloud run deploy clawdbot \
 .
 ├── Dockerfile.cloudrun          # Docker image for Cloud Run
 ├── cloudbuild.yaml              # Cloud Build configuration
+├── agents.md.example            # AI 指令範本（圖片格式）
+├── env.example.txt              # 環境變數範本
 ├── scripts/
 │   └── cloudrun-entrypoint.sh   # Runtime config generator
 └── extensions/
@@ -178,6 +180,30 @@ Once deployed, you can:
   - Google Chat: `https://YOUR_DOMAIN/googlechat`
   - LINE: `https://YOUR_DOMAIN/line`
 - 群組訊息建議設定為「需要 @ 提及」以避免被動觸發
+
+## AGENTS.md 設定（圖片直接顯示的關鍵）
+
+為了讓 AI 生成的圖片能**直接顯示在聊天室**（而非純文字連結），你需要在 OpenClaw workspace 建立 `AGENTS.md` 檔案。
+
+### 原理
+
+1. 圖片生成 skill（如 `nano-banana-pro`）會回傳 `MEDIA: https://...` 格式
+2. OpenClaw 偵測到 `MEDIA:` token 後，會自動轉換成原生圖片訊息
+3. 但 AI 模型可能會「優化」這個格式，把它變成 Markdown 連結
+4. `AGENTS.md` 的作用是明確告訴 AI：**不要改動 `MEDIA:` 格式**
+
+### 設定方式
+
+```bash
+# 複製範本到 OpenClaw workspace
+cp agents.md.example ~/.openclaw/workspace/AGENTS.md
+```
+
+或手動建立 `~/.openclaw/workspace/AGENTS.md`，內容參考本 repo 的 `agents.md.example`。
+
+### 驗證
+
+設定完成後，請在聊天室測試「幫我畫一隻貓」，圖片應該直接顯示而非連結。
 
 ## Troubleshooting
 
